@@ -19,3 +19,4 @@ jobs:
           script: |
             cd ${{ secrets.SVR_DIR }}
             git pull
+            composer install
