@@ -1,0 +1,12 @@
+{
+    "name": "dioh09/generate_markov",
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "authors": [
+        {
+            "name": "dioh0922",
+            "email": "diohound@gmail.com"
+        }
+    ]
+}

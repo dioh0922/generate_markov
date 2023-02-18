@@ -1,12 +1,15 @@
 <?php
-require_once(dirname(__FILE__)."/../env/url_setting.php");
+require(dirname(__FILE__)."/vendor/autoload.php");
+$env = Dotenv\Dotenv::createImmutable(dirname(__FILE__)."/../env");
+$env->load();
+
 ini_set( 'display_errors', 1 );
 	header('Content-Type: text/html; charset=UTF-8');
 	try{
 		$full = "";
 		if(isset($_POST["lang"])){
 			$post_data = $_POST;
-			$curl = curl_init($HEROKU_MARKOV_URL);
+			$curl = curl_init($_ENV["MARKOV_API_SVR"]);
 			curl_setopt($curl, CURLOPT_POST, TRUE);
 			curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($post_data));
 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, FALSE);
